@@ -35,6 +35,7 @@ Restart-Service TeamViewer
 ## Wait for the TeamViewer Host to finish installation, get started up, and get a TeamViewer ID:
 Start-Sleep -s 30
 
+cd ../../
 
 cd '.\Program Files (x86)\TeamViewer\'
 
