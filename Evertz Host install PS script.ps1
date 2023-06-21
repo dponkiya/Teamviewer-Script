@@ -7,7 +7,7 @@
 
 
 ## --------------------------------------------------------------------------
-
+cd C:\
 ## Run the silent installation of the TeamViewer Host (Custom Module), referencing the Custom Config ID:
 ## Please adjust the path to the TeamViewer_Host.msi package
 Start-Process msiexec.exe -Wait '/I TeamViewer_Host.msi /qn CUSTOMCONFIGID=6dwxdch'
@@ -35,9 +35,9 @@ Restart-Service TeamViewer
 ## Wait for the TeamViewer Host to finish installation, get started up, and get a TeamViewer ID:
 Start-Sleep -s 30
 
-cd ../../
 
-cd '.\Program Files (x86)\TeamViewer\'
+
+cd 'C:\Program Files (x86)\TeamViewer\'
 
 $string = ".\TeamViewer.exe"
 Invoke-Expression $string
