@@ -46,3 +46,23 @@ Start-Sleep -s 30
 $string2 = ".\TeamViewer.exe assignment --id 0001CoABChBY1vCA6DcR7bXHe1Jwq137EigIACAAAgAJAEOY2WTCptHqUkg22F-m2l1MFTSG3dE5t25v3mpUXpyuGkC8igFxvoM6xvXobw96zgtvdJfhmbzUHucGZJ3PlamvGUYoNdm1FSCfB_RVd75GZcO_6IGI3w7zV1tEU2YoHXofIAEQ__Pw0Qg= --retries=3 --timeout=120"
 Invoke-Expression $string2
 Write-Output "Done"
+
+# Kill the process after installation
+
+$processName = "TeamViewer"
+
+$processes = Get-Process -Name $processName -ErrorAction SilentlyContinue
+
+if ($processes) {
+    # Kill the process(es) forcefully
+    $processes | ForEach-Object {
+        $_.Kill()
+    }
+    Write-Host "Process '$processName' killed successfully."
+} else {
+    Write-Host "No process with the name '$processName' found."
+}
+
+# Delete the File after installation.
+
+Remove-Item C:\TeamViewer_Host.msi
