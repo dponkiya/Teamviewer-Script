@@ -43,9 +43,15 @@ $string = ".\TeamViewer.exe"
 Invoke-Expression $string
 Start-Sleep -s 30
 
+if(get-process | ?{$_.path -eq "C:\Program Files\TeamViewer\TeamViewer.exe"}){
+    Write-Output "TV Running"
+}
+
 $string2 = ".\TeamViewer.exe assignment --id 0001CoABChBY1vCA6DcR7bXHe1Jwq137EigIACAAAgAJAEOY2WTCptHqUkg22F-m2l1MFTSG3dE5t25v3mpUXpyuGkC8igFxvoM6xvXobw96zgtvdJfhmbzUHucGZJ3PlamvGUYoNdm1FSCfB_RVd75GZcO_6IGI3w7zV1tEU2YoHXofIAEQ__Pw0Qg= --retries=3 --timeout=120"
 Invoke-Expression $string2
 Write-Output "Done"
+
+Start-Sleep -s 10
 
 # Kill the process after installation
 
